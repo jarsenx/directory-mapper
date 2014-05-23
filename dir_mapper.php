@@ -32,20 +32,12 @@
 require_once('.\\classes\\DirnameFilter.php');
 include('.\\includes\\crawler.inc.php');
 
-if (!isset($path)) $path = 'C:\\Users\\Joseph\\Documents\\';
-$recurse = false;
 $errors = array();
 
 if (isset($_POST['start'])) {
     $path = $_POST['folderPath'];
     if (!isset($path) || !is_dir($path)) {
-        // TEMPORARY
-        $path = 'C:\\Users\\Joseph\\Documents\\';
-        // $errors['folderPath'] = 'Please enter a valid folder path';
-    }
-    $recurse = $_POST['recurse'];
-    if (isset($recurse)) {
-        $recurse = true;
+        $errors['folderPath'] = 'Please enter a valid folder path';
     }
 }
 
@@ -65,37 +57,35 @@ if (isset($_POST['start'])) {
     <?php if ($_POST && isset($errors['folderPath'])) { ?>
         <p class="warning"><?php echo $errors['folderPath'] ?></p>
     <?php } ?>
-
     <form id="form1" name="form1" method="post" action="">
         <p>
-            <label for="folderPath">Enter the path of the folder to crawl:</label><br />
+            <label for="folderPath">Enter the path of the directory to map:</label>
             <input type="text" name="folderPath" id="folderPath">
         </p>
         <p>
             <span id="interests">
-                <input type="checkbox" name="recurse" id="recurse"><label for="recurse">Crawl subfolders</label><br />
-                <input type="checkbox" name="fileout" id="fileout"><label for="fileout">Save to file?</label>
+                <input type="checkbox" name="fileout" id="fileout"><label for="fileout">Save to file</label>
             </span>
         </p>
         <p>
             <input type="submit" name="start" id="start" value="Start">
         </p>
+        <?php
+        if ($_POST && !isset($errors['folderPath'])) { ?>
+            <p><?php echo "Entered path: " . $path . '<br />'?></p>
+        <?php } ?>
     </form>
-    <?php
-    if ($_POST && !isset($errors['folderPath'])) { ?>
-        <p><?php echo "Entered path: " . $path . '<br />'?></p>
-        <p><?php echo "Crawl subfolders: " . ($recurse ? 'Yes' : 'No') . '<br />'?></p>
-    <?php } ?>
+    <hr />
     <ul>
+        <li><a class="directory" href="<?php echo 'file///:' . $path?>"><?php echo $path ?></a></li>
     <?php
+    if ($_POST && !isset($errors['folderPath'])) {     
         $fileLinks = getFileLinks($path);
-        //$baseFolder = getLinkCode($path, 0);
-        //echo '[' . $baseFolder . ']';
-        echo getLinkCode($path, 0);
+        //echo getLinkCode($path, 0);
         foreach ($fileLinks as $fileLink) {
             echo $fileLink;
         }
-
+    }
     ?>
     </ul>
 </div>
