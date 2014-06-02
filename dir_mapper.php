@@ -33,6 +33,7 @@ require_once('.\\classes\\DirnameFilter.php');
 include('.\\includes\\crawler.inc.php');
 
 $errors = array();
+$path = null;
 
 if (isset($_POST['start'])) {
     $path = $_POST['folderPath'];
@@ -75,19 +76,21 @@ if (isset($_POST['start'])) {
             <p><?php echo "Entered path: " . $path . '<br />'?></p>
         <?php } ?>
     </form>
-    <hr />
-    <ul>
-        <li><a class="directory" href="<?php echo 'file///:' . $path?>"><?php echo $path ?></a></li>
-    <?php
-    if ($_POST && !isset($errors['folderPath'])) {     
-        $fileLinks = getFileLinks($path);
-        //echo getLinkCode($path, 0);
-        foreach ($fileLinks as $fileLink) {
-            echo $fileLink;
-        }
-    }
-    ?>
-    </ul>
+    <?php if ($_POST && isset($path)) { ?>
+        <hr />
+        <ul>
+            <li><a class="directory" href=<?php echo '"file///:' . $path ?>'"'><?php echo $path ?></a></li>
+            <?php
+            if ($_POST && !isset($errors['folderPath'])) {     
+                $fileLinks = getFileLinks($path);
+                //echo getLinkCode($path, 0);
+                foreach ($fileLinks as $fileLink) {
+                    echo $fileLink;
+                }
+            }
+            ?>
+        </ul>
+    <?php } ?>
 </div>
 </body>
 </html>
