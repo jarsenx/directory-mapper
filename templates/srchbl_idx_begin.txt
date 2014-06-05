@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Directory Mapper</title>
+    <style type="text/css">
+        /* Styles defined in the body remove any default margin or padding on the page.
+         * Some browsers add margin, others add padding, so setting them both to zero means the page offset looks the same in all browsers.
+         * The background rule sets the page background to white with the image of Mount Fuji in the top left.
+         * The background image also contains the main page heading in both Japanese and English.
+         * The text is set to a very dark gray, which is easier on the eyes than black.
+         * The font-family applies to all text on the page, except where specifically overridden by other rules. */
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: #333;
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            overflow-y:scroll;
+            background-color: #EAE2D7;
+        }
+
+        /* All margins are removed from h1 and h2 tags, except for the bottom margin, which is set to 10px.
+         * The main font-family is reset to Verdana, which looks better for titles, and the color is reset to a dark blue.
+         */
+
+        h1, h2 {
+            margin: 0 0 10px 0;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            color: #036;
+        }
+
+        h2 {
+            font-size: 140%;
+        }
+
+        /* Paragraphs have the left and top margins reduced to zero. The auto rule leaves the right margin untouched, 
+         * while the bottom margin is set to 1em. The default font size is reduced, and the spacing between lines increased
+         * for greater readability. */
+
+        p {
+            margin: 0 auto 1em 0;
+            padding: 0 20px;
+            font-size: 85%;
+            line-height: 1.4;
+        }
+
+        /* The maincontent div has zero top and bottom margins. The right margin is 10% of page width to give breathing space on the right.
+         * The left margin is set at 190px to make room for the navigation menu. Minimum and maximum widths are set to keep the layout flexible. */
+
+        #maincontent {
+            margin: 0 10% 0 190px;
+            min-width: 525px;
+            max-width: 900px;
+        }
+
+        /* Styles for links in the maincontent div. */
+
+        #maincontent a {
+            font-weight: bold;
+            font-size: 90%;
+            text-decoration: none;
+            padding: 2px 4px;
+        }
+
+        #maincontent a:link, #maincontent a:visited {
+            color: #00425E;
+        /*    border-bottom: #00425E solid 1px; */
+        }
+
+        #maincontent a:hover, #maincontent a:active {
+            color: #fff;
+            background-color: #00425E;
+            border-bottom: none;
+        }
+
+        form {
+            margin: 0 0 0 20px;
+        }
+
+        form h2 {
+            color: #036;
+            font-size: 80%;
+            font-weight: bold;
+            margin: 0 0 5px 10px;
+        }
+
+        form p {
+            margin: 0 0 5px 0;
+        }
+
+        /* Setting display to block forces the label for each form element onto a line of its own. */
+
+        label {
+            font-weight: bold;
+            color: #036;
+            display: block;
+        }
+
+        /* This needs to be overridden for the subscribe and interests labels, so display is reset to inline. */
+
+        #subscribe label, #interests label {
+            display: inline;
+            padding: 0 20px 0 3px;
+        }
+
+        label.checkbox {
+            display: inline;
+            padding: 0 20px 0 3px;
+        }
+
+        /* The warning class makes the error messages on the feedback form bold and red. */
+
+        .warning {
+            font-weight: bold;
+            color: #f00;
+        }
+
+        .indent1 {
+            margin-left: 2em;
+        }
+
+        .indent2 {
+            margin-left: 4em;
+        }
+
+        .indent3 {
+            margin-left: 6em;
+        }
+
+        .indent3 {
+            margin-left: 8em;
+        }
+
+        .indent4 {
+            margin-left: 10em;
+        }
+
+        .indent5 {
+            margin-left: 12em;
+        }
+
+        .indent6 {
+            margin-left: 14em;
+        }
+
+        .indent7 {
+            margin-left: 16em;
+        }
+
+        .indent8 {
+            margin-left: 18em;
+        }
+
+        .indent9 {
+            margin-left: 20em;
+        }
+
+        .indent10 {
+            margin-left: 22em;
+        }
+
+        .indent11 {
+            margin-left: 24em;
+        }
+
+        #maincontent a.directory {
+            font-size: 100%;
+            color: #338dba;
+        }
+    </style>
+</head>
+<body>
+    <div id="maincontent">
+        <h2>Directory Mapper</h2>
+        <h3>Display path of mapped directory here</h3>
+        <hr />
+        <ul>
+            <li><a class="directory" href="file///:C:\wamp\bin">C:\wamp\bin</a></li>
