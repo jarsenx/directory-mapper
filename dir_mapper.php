@@ -31,6 +31,7 @@
 
 require_once('.' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'DirnameFilter.php');
 include('.' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'crawler.inc.php');
+include('.' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'filebuilder.inc.php');
 
 $errors = array();
 $path = null;
