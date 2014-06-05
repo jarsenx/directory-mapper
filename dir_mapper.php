@@ -29,8 +29,8 @@
 
 // Issues: evidently HTML doesn't allow you to display a directory selector.
 
-require_once('.\\classes\\DirnameFilter.php');
-include('.\\includes\\crawler.inc.php');
+require_once('.' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'DirnameFilter.php');
+include('.' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'crawler.inc.php');
 
 $errors = array();
 $path = null;
