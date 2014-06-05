@@ -35,11 +35,17 @@ include('.' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'filebuil
 
 $errors = array();
 $path = null;
+$fileLinks = null;
 
 if (isset($_POST['start'])) {
     $path = $_POST['folderPath'];
     if (!isset($path) || !is_dir($path)) {
         $errors['folderPath'] = 'Please enter a valid folder path';
+    } else {
+        echo "I'm in the else block";
+        echo $_SERVER["DOCUMENT_ROOT"];
+        $fileLinks = getFileLinks($path);
+        buildAndSaveFile($links);
     }
 }
 
@@ -83,10 +89,12 @@ if (isset($_POST['start'])) {
             <li><a class="directory" href=<?php echo '"file///:' . $path ?>'"'><?php echo $path ?></a></li>
             <?php
             if ($_POST && !isset($errors['folderPath'])) {     
-                $fileLinks = getFileLinks($path);
+                //$fileLinks = getFileLinks($path);
                 //echo getLinkCode($path, 0);
-                foreach ($fileLinks as $fileLink) {
-                    echo $fileLink;
+                if (isset($fileLinks)) {
+                    foreach ($fileLinks as $fileLink) {
+                        echo $fileLink;
+                    }
                 }
             }
             ?>
