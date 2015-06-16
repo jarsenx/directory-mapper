@@ -27,7 +27,7 @@
 
 // Fifth step: save the generated collection of hyperlinks to a file.
 
-// Issues: evidently HTML doesn't allow you to display a directory selector.
+// Issues: evidently HTML doesn't allow you to display a directory selector. WUWT?
 
 require_once('.' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'DirnameFilter.php');
 include('.' . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'crawler.inc.php');
